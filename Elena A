@@ -1,0 +1,176 @@
+struct Articulo {
+// Se declaran como opcionales para no tener que inicializarse
+  let nombre: String?
+  let precio: Double?
+  var stock: Int?
+}
+//Se crean los arreglos del catalogo de articulos
+var articulos = [
+  Articulo(nombre: "Camisa", precio: 1000, stock: 25),
+  Articulo(nombre: "Pantalon", precio: 2000, stock: 12),
+  Articulo(nombre: "Tenis", precio: 5000, stock: 17),
+  Articulo(nombre: "Cinturon", precio: 200, stock: 48),
+  Articulo(nombre: "Falda", precio: 1500, stock: 5),
+  Articulo(nombre: "Zapatos", precio: 30, stock: 9)
+  ]
+// Creacion del menu interactivo, nos permite recibir la informacion del usuario
+var aux: String = ""
+var opIngresada: String = aux
+var cuenta: Double = 0.0 
+
+//MUESTRA EL LISTADO DE ARTICULOS DISPONOBLES
+while opIngresada != "2" {
+  print("****** BIENVENIDOS A TIENDA ONLINE *****")
+  print("\n          ARTICULOS DISPONIBLES\n")
+  print("Opción 1")
+  print("Articulo: 1 - \(articulos[0].nombre!)")
+  print("Precio \(articulos[0].precio!)")
+  print("Stock \(articulos[0].stock!)")
+  print("----------------------------------------")
+  print("Opción 2")
+  print("Articulo: 2 - \(articulos[1].nombre!)")
+  print("Precio \(articulos[1].precio!)")	
+  print("Stock \(articulos[1].stock!)")
+  print("----------------------------------------")
+  print("Opción 3")
+  print("Articulo: 3 - \(articulos[2].nombre!)")
+  print("Precio \(articulos[2].precio!)")
+  print("Stock \(articulos[2].stock!)")
+  print("----------------------------------------")
+  print("Opción 4")
+  print("Articulo: 4 - \(articulos[3].nombre!)")
+  print("Precio \(articulos[3].precio!)")
+  print("Stock \(articulos[3].stock!)")
+  print("----------------------------------------")
+  print("Opción 5")
+  print("Articulo: 5 - \(articulos[4].nombre!)")
+  print("Precio \(articulos[4].precio!)")
+  print("Stock \(articulos[4].stock!)")
+  print("----------------------------------------")
+  print("Opción 6")
+  print("Articulo: 6 - \(articulos[5].nombre!)")
+  print("Precio \(articulos[5].precio!)")
+  print("Stock \(articulos[5].stock!)")
+  print("----------------------------------------\n")
+  
+  print( "1. COMPRAR ARTICULO")
+  print( "2. SALIR")
+
+  print( "\nIngrese la Opción deseada:")
+
+  aux = readLine()!
+  opIngresada = aux
+
+  switch opIngresada {
+    // para realizar la compra de un articulo ingresamos el numero del articulo
+    case "1":
+      print("\nIngrese el número del Articulo que desea comprar:")
+          aux = readLine()!
+          opIngresada = aux
+    
+    switch opIngresada {
+
+      case "1":
+      print("\nIngrese la cantidad de Camisas que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+      // en caso de que la cantidad ingresada sea menor o igual al stock, se procede a realizar la compra
+      let cantIngresada = Int(opIngresada)!
+      if cantIngresada <= articulos[0].stock! {
+        articulos[0].stock! = articulos[0].stock! - cantIngresada
+        cuenta = Double(cantIngresada) * articulos[0].precio!
+        print("\nUsted a comprado \(cantIngresada) Camisas de $\(articulos[0].precio!)")
+        print("\nEl total a pagar es: $\(cuenta)")  
+        print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+      
+      // en caso de que la cantidad ingresada sea mayor al stock, se imprime un mensaje para que se vuelve a ingresar la cantidad
+      
+    }else {
+        print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+   }
+      case "2":
+      print("\nIngrese la cantidad de Pantalones que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+          let cantIngresada = Int(opIngresada)!
+          if cantIngresada <= articulos[1].stock! {
+            articulos[1].stock! = articulos[1].stock! - cantIngresada
+            cuenta = Double(cantIngresada) * articulos[1].precio!
+            print("\nUsted a comprado \(cantIngresada) Pantalones de $\(articulos[1].precio!)")
+            print("\nEl total a pagar es: $\(cuenta)")  
+            print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+
+        }else {
+            print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+       }
+      case "3":
+      print("\nIngrese la cantidad de Tenis que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+      let cantIngresada = Int(opIngresada)!
+      if cantIngresada <= articulos[2].stock! {
+        articulos[2].stock! = articulos[2].stock! - cantIngresada
+        cuenta = Double(cantIngresada) * articulos[2].precio!
+        print("\nUsted a comprado \(cantIngresada) Tenis de $\(articulos[2].precio!)")
+        print("\nEl total a pagar es: $\(cuenta)")
+        print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+        }else {
+        print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+        }
+      case "4":
+      print("\nIngrese la cantidad de Cinturones que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+      let cantIngresada = Int(opIngresada)!
+      if cantIngresada <= articulos[3].stock! {
+        articulos[3].stock! = articulos[3].stock! - cantIngresada
+        cuenta = Double(cantIngresada) * articulos[3].precio!
+        print("\nUsted a comprado \(cantIngresada) Tenis de $\(articulos[3].precio!)")
+        print("\nEl total a pagar es: $\(cuenta)")
+        print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+        }else {
+        print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+        }
+      case "5":
+      print("\nIngrese la cantidad de Faldas que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+      let cantIngresada = Int(opIngresada)!
+      if cantIngresada <= articulos[4].stock! {
+        articulos[4].stock! = articulos[4].stock! - cantIngresada
+        cuenta = Double(cantIngresada) * articulos[4].precio!
+        print("\nUsted a comprado \(cantIngresada) Tenis de $\(articulos[4].precio!)")
+        print("\nEl total a pagar es: $\(cuenta)")
+        print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+        }else {
+        print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+        }
+      case "6":
+      print("\nIngrese la cantidad de Zapatos que desea comprar:")
+      aux = readLine()!
+      opIngresada = aux
+      let cantIngresada = Int(opIngresada)!
+      if cantIngresada <= articulos[5].stock! {
+        articulos[5].stock! = articulos[5].stock! - cantIngresada
+        cuenta = Double(cantIngresada) * articulos[5].precio!
+        print("\nUsted a comprado \(cantIngresada) Tenis de $\(articulos[5].precio!)")
+        print("\nEl total a pagar es: $\(cuenta)")
+        print("\n+++ Agradecemos su preferencia, vuelva pronto! +++\n")
+        }else {
+        print("La cantidad ingresada es mayor al stock disponible, ingrese una cantidad menor o igual al stock disponible")
+        }
+      
+       // en caso de que la opcion se diferente a las del listado, imprimr el mensaje
+      default:
+      print("Opcion Invalida")
+    }
+      // en caso de que el usuario ingrese 2 se sale del menu interactivo
+    case "2":
+    print("\nGracias por su compra!")
+    aux = readLine()!
+    // en caso de que se teclee un numero diferente a 1 o 2 imprime un mensaje de opcion Invalida
+    default:
+    print("\nOpcion Invalida!")
+    aux = readLine()!
+    }        
+  }
